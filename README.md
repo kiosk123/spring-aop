@@ -62,3 +62,17 @@ public void logBefore() {
 
 - Ordered 인터페이스 구현으로 우선 순위결정  - (calculator.CalculatorValidationAspect)
 - @Order 으로 우선 순위 결정 - (calculator.CalculatorLoggingAspect)
+
+### 4. 애스펙트 포인트컷 재사용하기
+
+포인트 컷을 여러 번 되풀이해서 쓸 경우 포인터 컷 하나만 선언 후 선언한 포인트 컷을 참조해서 사용한다.
+
+#### 4-1. 참조 대상이 되는 포인트 컷 선언
+
+바디가 비어있는 메서드에 @PointCut을 붙여 참조대상이 되는 포인트컷을 선언하고 참조한다. - (calculator.CalculatorLoggingAspect)
+
+#### 4-2. 여러 애스펙트에서 포인트 컷 공유
+
+여러 애스펙트에서 포인트 컷을 공유하기 위해 별도의 포인트 컷만 정의하는 클래스를 생성 후 @Aspect를 붙이고 포인트 컷을 정의한다.  
+포인트컷이 정의된 메서드는 반드시 public으로 선언한다. - (calculator.CalculatorPointcuts, calculator.CalculatorLoggingAspect)
+
