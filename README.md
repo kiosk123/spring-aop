@@ -53,3 +53,12 @@ public void logBefore() {
 ### 2. 조인 포인트 정보 가져오기 - (calculator.CalculatorLoggingAspect)
 
 어드바이스에서 조인포인트에 엑세스 할때. 실행되는 타겟 메서드 정보(선언 타입, 인수값등..)을 가져올 수 있다.
+
+### 3. 애스펙트 우선순위 설정
+
+같은 조인포인트에 애스펙트(@Aspect)를 여러개 적용할 경우, 애스펙트 간 순위를 정해야한다.  
+예를 들어 로깅과 검증 애스펙트(@Aspect)를 둘 다 사용할때 어느 쪽을 먼저 적용해야 할 지 알 수 없기 때문에  
+우선 순위를 부여해서 실행 순서를 결정한다.
+
+- Ordered 인터페이스 구현으로 우선 순위결정  - (calculator.CalculatorValidationAspect)
+- @Order 으로 우선 순위 결정 - (calculator.CalculatorLoggingAspect)
