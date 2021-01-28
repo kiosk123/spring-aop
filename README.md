@@ -2,6 +2,7 @@
 
 ## 프로젝트 구성
 
+스프링 5  
 JAVA 11  
 gradle 6.6
 
@@ -31,7 +32,7 @@ implementation "org.aspectj:aspectjweaver:<version>"
   
 다음은 포인트 컷 예시다.
 
-```
+```java
 /**
     ArithmeticCalculator 인터페이스의
     모든 modifier(public, private, protected)와 모든 반환형(return type)과 매치(*)하며,
@@ -76,3 +77,6 @@ public void logBefore() {
 여러 애스펙트에서 포인트 컷을 공유하기 위해 별도의 포인트 컷만 정의하는 클래스를 생성 후 @Aspect를 붙이고 포인트 컷을 정의한다.  
 포인트컷이 정의된 메서드는 반드시 public으로 선언한다. - (calculator.CalculatorPointcuts, calculator.CalculatorLoggingAspect)
 
+#### 5. AspectJ 포인트컷 표현식 작성
+
+상세 내용은 디렉터리 참고
