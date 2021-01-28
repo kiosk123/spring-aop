@@ -49,3 +49,7 @@ public void logBefore() {
 - **@AfterReturning** - 조인포인트의 성공 여부와 상관없이 작동하며, 조인포인트가 값을 반환할 경우에 로깅하고자 할때 사용한다.
 - **@AfterThrowing** - 조인포인트 실행중 예외가 발생했을 경우 실행한다.
 - **@Advice** - 조인포인트를 완전히 감쌀때 사용 (= @Before + @AfterReturning + @AfterThrowing) 조인포인트 인수형은 ProceedingJoinPoint를 사용하며 이걸 이용해서 타겟 메서드를 호출한다.
+
+### 2. 조인 포인트 정보 가져오기 - (calculator.CalculatorLoggingAspect)
+
+어드바이스에서 조인포인트에 엑세스 할때. 실행되는 타겟 메서드 정보(선언 타입, 인수값등..)을 가져올 수 있다.
