@@ -16,7 +16,7 @@ implementation "org.aspectj:aspectjweaver:<version>"
 
 ## 목차
 
-### 1. 애너테이션을 이용하여 AOP 처리 기본
+### 1. 애너테이션을 이용하여 AOP 처리 기본 - (calculator.CalculatorLoggingAspect)
 
 애스펙트(Aspect)를 정의하려면 자바 클래스에 @Aspect를 붙인 후 메서드별로 필요한 애너테이션을 붙여 어드바이스를 만든다.  
 어드바이스 애너테이션은 **@Before, @After, @AfterReturning, @AfterThrowing, @Around** 를 사용할 수 있다.  
@@ -44,6 +44,8 @@ public void logBefore() {
 }
 ```
 
-#### 1.1 @Before 어드바이스
-
-특정 프로그램 실행지점 이전의 공통 관심사를 처리한다. - (calculator.CalculatorLoggingAspect)
+- @Before - 특정 프로그램 실행지점 이전의 공통 관심사를 처리한다.
+- @After - 조인포인트가 끝나면 실행된다. 조인포인트가 조인포인트의 성공 여부와 상관없이 실행된다.
+- @AfterReturning - 조인포인트의 성공 여부와 상관없이 작동하며, 조인포인트가 값을 반환할 경우에 로깅하고자 할때 사용한다.
+- @AfterThrowing - 조인포인트 실행중 예외가 발생했을 경우 실행한다.
+- @Advice - 조인포인트를 완전히 감쌀때 사용 (= @Before + @AfterReturning + @AfterThrowing) 조인포인트 인수형은 ProceedingJoinPoint를 사용하며 이걸 이용해서 타겟 메서드를 호출한다.

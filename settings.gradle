@@ -9,4 +9,4 @@
 
 rootProject.name = 'spring-aop'
 
-include 'project-01-01'
+include 'project-01'
