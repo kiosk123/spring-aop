@@ -1,0 +1,59 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+	}
+}
+
+ext {
+    springVersion = '5.0.5.RELEASE'
+}
+
+allprojects {}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'application'
+
+	sourceCompatibility = "11"
+	targetCompatibility = "11"
+
+	[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+	task initSourceFolders {
+		sourceSets*.java.srcDirs*.each {
+			if( !it.exists() ) {
+				it.mkdirs()
+			}
+		}
+	 
+		sourceSets*.resources.srcDirs*.each {
+			if( !it.exists() ) {
+				it.mkdirs()
+			}
+		}
+	}
+	
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+
+	dependencies {
+	    implementation "org.springframework:spring-core:${springVersion}"
+	    implementation "org.springframework:spring-context:${springVersion}"
+		implementation "org.springframework:spring-beans:${springVersion}"
+
+		implementation "org.aspectj:aspectjrt:1.8.13"
+		implementation "org.aspectj:aspectjweaver:1.8.13"
+		
+		//logging 설정 
+		//implementation "org.slf4j:slf4j-simple:1.7.25" //설정시 logback.xml 파일 안 읽음 
+		implementation'ch.qos.logback:logback-classic:1.2.3'
+		// implementation'ch.qos.logback:logback-core:1.2.3'
+		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+	}
+}
