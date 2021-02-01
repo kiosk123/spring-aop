@@ -10,7 +10,7 @@ gradle 6.6
 
 AOP 프로그래밍을 위한 의존 라이브러리 설정은 다음과 같다.  
 
-```
+```gradle
 implementation "org.aspectj:aspectjrt:<version>"
 implementation "org.aspectj:aspectjweaver:<version>"
 ```
